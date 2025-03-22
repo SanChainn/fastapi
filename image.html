@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Image Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>FastAPI Image Example</h1>
+    <p id="message">Loading...</p>
+    <img id="image" src="" alt="Image from FastAPI">
+
+    <script>
+        async function fetchImage() {
+            try {
+                const response = await fetch("https://fastapi-32b0.onrender.com/image");
+                const data = await response.json();
+                
+                document.getElementById("message").innerText = data.message;
+                document.getElementById("image").src = data.image;
+            } catch (error) {
+                document.getElementById("message").innerText = "Failed to load image.";
+            }
+        }
+
+        fetchImage();
+    </script>
+</body>
+</html>
