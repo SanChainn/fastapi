@@ -17,6 +17,12 @@ def read_root():
     print("hello, FastAPI!")
     return {"message": "Hello, FastAPI!"}
 
+# Root Endpoint
+@app.get("/image")
+def read_root():
+    print("hello, FastAPI!")
+    return {"message": "Hello, FastAPI!", "image": "https://i.imgur.com/iIJBqUN.jpeg"}
+
 # Path Parameter Example
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str = None):
