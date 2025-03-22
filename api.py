@@ -14,6 +14,7 @@ class Item(BaseModel):
 # Root Endpoint
 @app.get("/")
 def read_root():
+    print("hello, FastAPI!")
     return {"message": "Hello, FastAPI!"}
 
 # Path Parameter Example
